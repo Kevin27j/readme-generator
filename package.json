@@ -1,0 +1,23 @@
+{
+  "name": "readme-generator",
+  "version": "1.0.0",
+  "description": "Generate a clean and professional README",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kevin27j/readme-generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kevin27j/readme-generator/issues"
+  },
+  "homepage": "https://github.com/Kevin27j/readme-generator#readme",
+  "dependencies": {
+    "inquirer": "^6.5.0"
+  }
+}
