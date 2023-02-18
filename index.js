@@ -2,9 +2,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const util = require('util');
 
-// Prompt user for readme inputs using inquirer
-const promptUser = () =>
-    inquirer.prompt([
+const questions = [
         {
             type: 'input',
             name: 'title',
@@ -30,41 +28,38 @@ const promptUser = () =>
             name: 'license',
             message: 'Your license: '
         }
-    ])
+];
 
 // function template for readme file generator
 const generateReadme = (answers) =>
-    `# ${answers.title}
+`# ${answers.title}
 
-    ## Description
+## Description
     
     ${answers.description}
     
-    ## Table of Contents (Optional)
+## Table of Contents
+        
+    - [Description](#description)
+    - [Table of Contents (Optional)](#table-of-contents-optional)
+    - [Installation](#installation)
+    - [Usage](#usage)
+    - [Credits](#credits)
+    - [License](#license)
+    - [Badges](#badges)
+    - [Features](#features)
+    - [How to Contribute](#how-to-contribute)
+    - [Tests](#tests)
     
-    If your README is long, add a table of contents to make it easy for users to find what they need.
-    
-    - [](#)
-      - [Description](#description)
-      - [Table of Contents (Optional)](#table-of-contents-optional)
-      - [Installation](#installation)
-      - [Usage](#usage)
-      - [Credits](#credits)
-      - [License](#license)
-      - [Badges](#badges)
-      - [Features](#features)
-      - [How to Contribute](#how-to-contribute)
-      - [Tests](#tests)
-    
-    ## Installation
+## Installation
     
     ${answers.installation}
     
-    ## Usage
+## Usage
     
     ${answers.usage}
-    
-    ## Credits
+     
+## Credits
     
     List your collaborators, if any, with links to their GitHub profiles.
     
@@ -72,10 +67,13 @@ const generateReadme = (answers) =>
     
     If you followed tutorials, include links to those here as well.
     
-    ## License
+## License
     
-    ${answers.license}
-`
+    ${answers.license}`
 
-
-
+function init(){
+    fs.writeFile('README.md', generateReadme(questions), (err) => 
+        err ? console.error(err) : console.log('success')
+    )
+}
+init()
