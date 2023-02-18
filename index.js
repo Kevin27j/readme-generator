@@ -31,7 +31,7 @@ const questions = [
 ];
 
 // function template for readme file generator
-const generateReadme = (answers) =>
+const generateReadme = (answers) => 
 `# ${answers.title}
 
 ## Description
@@ -71,9 +71,12 @@ const generateReadme = (answers) =>
     
     ${answers.license}`
 
+
 function init(){
-    fs.writeFile('README.md', generateReadme(questions), (err) => 
-        err ? console.error(err) : console.log('success')
-    )
+    inquirer.prompt(questions)
+    .then((answers) => fs.writeFile('README.md', generateReadme(answers), (err) => 
+    err ? console.error(err) : console.log('success')
+));
 }
+
 init()
