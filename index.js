@@ -1,82 +1,71 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const util = require('util');
+const generateReadme = require('./generateReadme');
 
 const questions = [
         {
             type: 'input',
             name: 'title',
-            message: 'Title of your project: '
+            message: 'Title of your project: ',
+            validate: Boolean
         },
         {
             type: 'input',
             name: 'description',
-            message: 'Write a description: '
+            message: 'Write a description: ',
+            validate: Boolean
         },
         {
             type: 'input',
             name: 'installation',
-            message: 'Enter installation guide: '
+            message: 'Enter installation guide: ',
+            validate: Boolean
         },
         {
             type: 'input',
             name: 'usage',
-            message: 'Enter usage instuction: '
+            message: 'How to use this application: ',
+            validate: Boolean
+        },
+        {
+            type: 'list',
+            name: 'license',
+            message: 'Your license: ',
+            choices: ['MIT', 
+            'Apache 2.0 License', 
+            'The Hippocratic License 3.0',
+            'Mozilla Public License 2.0',
+            'IBM Public License Version 1.0'],
         },
         {
             type: 'input',
-            name: 'license',
-            message: 'Your license: '
+            name: 'contributing',
+            message: 'How to contribute: ',
+            validate: Boolean
+        },
+        {
+            type: 'input',
+            name: 'test',
+            message: 'How to run test: ',
+            validate: Boolean
+        },
+        {
+            type: 'input',
+            name: 'questions',
+            message: 'Enter your email :',
+            validate: Boolean
         }
 ];
 
-// function template for readme file generator
-const generateReadme = (answers) => 
-`# ${answers.title}
-
-## Description
-    
-    ${answers.description}
-    
-## Table of Contents
-        
-    - [Description](#description)
-    - [Table of Contents (Optional)](#table-of-contents-optional)
-    - [Installation](#installation)
-    - [Usage](#usage)
-    - [Credits](#credits)
-    - [License](#license)
-    - [Badges](#badges)
-    - [Features](#features)
-    - [How to Contribute](#how-to-contribute)
-    - [Tests](#tests)
-    
-## Installation
-    
-    ${answers.installation}
-    
-## Usage
-    
-    ${answers.usage}
-     
-## Credits
-    
-    List your collaborators, if any, with links to their GitHub profiles.
-    
-    If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-    
-    If you followed tutorials, include links to those here as well.
-    
-## License
-    
-    ${answers.license}`
-
+const writeFileAsync = util.promisify(fs.writeFile)
 
 function init(){
     inquirer.prompt(questions)
-    .then((answers) => fs.writeFile('README.md', generateReadme(answers), (err) => 
+    .then((answers) => writeFileAsync('README.md', generateReadme(answers), (err) => 
     err ? console.error(err) : console.log('success')
 ));
 }
 
 init()
+
