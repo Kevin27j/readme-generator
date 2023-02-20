@@ -1,25 +1,26 @@
 // Function to generate a license badge based on user choice // Not working
-function licenseBadge(data){
+function licenseBadge(data) {
     const licenseUrl = '';
     for (let i = 0; i < data.length; i++){
         if (data[i].name === 'license'){
             if(data[i].choices === 'MIT'){
-                return licenseUrl = `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`;
+                licenseUrl = `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`;
             }
             else if(data[i].choices === 'Apache 2.0 License'){
-                return licenseUrl = `[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`;
+                licenseUrl = `[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`;
             }
             else if(data[i].choices === 'The Hippocratic License 3.0'){
-                return licenseUrl = `[![License: Hippocratic 3.0](https://img.shields.io/badge/License-Hippocratic_3.0-lightgrey.svg)](https://firstdonoharm.dev)`;
+                licenseUrl = `[![License: Hippocratic 3.0](https://img.shields.io/badge/License-Hippocratic_3.0-lightgrey.svg)](https://firstdonoharm.dev)`;
             }
             else if(data[i].choices === 'Mozilla Public License 2.0'){
-                return licenseUrl = `[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)`;
+                licenseUrl = `[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)`;
             }
             else if(data[i].choices === 'IBM Public License Version 1.0'){
-                return licenseUrl = `[![License: IPL 1.0](https://img.shields.io/badge/License-IPL_1.0-blue.svg)](https://opensource.org/licenses/IPL-1.0)`;
+                licenseUrl = `[![License: IPL 1.0](https://img.shields.io/badge/License-IPL_1.0-blue.svg)](https://opensource.org/licenses/IPL-1.0)`;
             }
         }
     }
+    return licenseUrl;
 }
 
 // function template for readme file generator
