@@ -45,7 +45,7 @@ ${answers.test}
 
 ## Questions
 
-You can ask me anything at my email ${answers.email} or check out my Github @${answers.github}
+You can ask me anything at my email ${answers.email} or check out my Github ${answers.github}
 `
 
 
