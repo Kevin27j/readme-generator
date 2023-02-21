@@ -46,4 +46,4 @@ npm test
 
 ## Questions
 
-You can ask me anything at my email kevin.952011@gmail.com or check out my Github @Kevin27j
+You can ask me anything at my email kevin.952011@gmail.com or check out my Github Kevin27j
