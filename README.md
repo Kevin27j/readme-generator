@@ -2,7 +2,7 @@
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ## Description
     
-This is a command-line application that generates a Readme File foryour project using Node.js, along with Inquirer, FS and Util module packages.
+This is a command-line application that generates a Readme File for your project using Node.js, along with Inquirer, FS and Util module packages.
     
 ## Table of Contents
         
